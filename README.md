@@ -3,10 +3,29 @@ A mock microservice that simulates a third-party tax calculation service.
 
 ## Overview
 
-This API allows you to retrieve tax information for different countries using a country code and an API key for authentication. The service returns the country's currency, VAT percentage, and a list of additional tax obligations.
+This API allows you to retrieve tax information for different countries using a country code and an API key for authentication.
+The service returns the country's currency, VAT percentage, and a list of additional tax obligations.
 
 important, this project is extremely easily deployable in GCP Cloud Run, recommended for small tests/experiments or
 for academic purposes.
+
+## To deploy in Cloud Run
+
+create the `scripts/secrets.sh` file
+
+```shell
+#!/bin/bash
+
+export PROJECT_ID="???"
+export REGION="???"
+export REPOSITORY="???"
+export IMAGE_NAME="???"
+export TAG="???"
+```
+
+fill with your corresponding details, this file gets sourced in 2
+scrips which create and push your image to Google Artifact Registry,
+the other one deploys the generated image in Google Cloud Run.
 
 ## Getting Started
 
